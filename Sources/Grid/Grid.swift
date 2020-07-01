@@ -33,6 +33,7 @@ public struct Grid<Content>: View where Content: View {
         .onPreferenceChange(GridPreferencesKey.self) { preferences in
             self.preferences = preferences
         }
+        .animation(nil, value: self.preferences)
     }
 }
 
