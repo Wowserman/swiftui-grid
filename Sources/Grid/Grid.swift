@@ -24,6 +24,7 @@ public struct Grid<Content>: View where Content: View {
             .transformPreference(GridPreferencesKey.self) {
                 self.style.transform(preferences: &$0, in: geometry.size)
             }
+            .animation(nil, value: self.preferences)
         }
         .frame(
             minWidth: self.style.axis == .horizontal ? self.preferences.size.width : nil,
@@ -33,7 +34,6 @@ public struct Grid<Content>: View where Content: View {
         .onPreferenceChange(GridPreferencesKey.self) { preferences in
             self.preferences = preferences
         }
-        .animation(nil, value: self.preferences)
     }
 }
 
